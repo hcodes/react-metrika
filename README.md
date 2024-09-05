@@ -50,7 +50,7 @@ import { MetrikaCounters } from 'react-metrika';
 
 export function MyPage() {
     const handleClick = () => {
-        ym(123, 'params', { myParams: { a: 1, b: 2, c: 3 } });
+        ym('123', 'params', { myParams: { a: 1, b: 2, c: 3 } });
     };
 
     return (
@@ -61,7 +61,7 @@ export function MyPage() {
         </Content>
         <Footer />
         <MetrikaCounters
-            ids={[123, 234]}
+            ids={['123', '234']}
             options={{
                 trackLinks: true,
                 trackHash: true,
@@ -78,11 +78,11 @@ export function MyPage() {
 import { ym } from 'react-metrika';
 
 // counterId, method, value
-ym(123, 'init', { clickmap: true, trackLinks: true });
+ym('123', 'init', { clickmap: true, trackLinks: true });
 
 // ...
 
-ym(123, 'reachGoal', 'goalName', { params: { a: 1, b: 2, c: 3 }});
+ym('123', 'reachGoal', 'goalName', { params: { a: 1, b: 2, c: 3 }});
 
 ```
 
