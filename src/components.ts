@@ -10,7 +10,7 @@ export function MetrikaCounter(props: MetrikaCounterProps): null {
         return null;
     }
 
-    sendAction(props.id, 'init', props.options);
+    sendAction(props.id, 'init', props.options || {});
 
     return null;
 }
@@ -25,7 +25,7 @@ export function MetrikaCounters(props: MetrikaCountersProps): null {
         return null;
     }
 
-    props.ids.forEach(id => sendAction(id, 'init', props.options));
+    props.ids.forEach(id => sendAction(id, 'init', props.options || {}));
 
     return null;
 }
