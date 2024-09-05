@@ -1,0 +1,21 @@
+{
+    "exclude": ["dist"],
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "module": "es6",
+        "target": "ES5",
+        "declaration": true,
+        "declarationDir": ".",
+        "allowJs": true,
+        "esModuleInterop": true,
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": false,
+        "forceConsistentCasingInFileNames": true
+    }
+}

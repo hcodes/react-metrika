@@ -1,0 +1,41 @@
+{
+  "name": "react-metrika",
+  "version": "0.1.0",
+  "description": "React/Preact component for Yandex Metrika",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "test": "tsc --noEmit",
+    "build": "rollup -c ./rollup.config.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hcodes/react-metrika"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "react component",
+    "preact component",
+    "react",
+    "preact",
+    "yandex",
+    "metrika",
+    "metrics",
+    "yandex-metrika",
+    "yandex metrika",
+    "component"
+  ],
+  "author": "Denis Seleznev <hcodes@ya.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "11.1.6",
+    "rollup": "4.21.0",
+    "tslib": "2.6.3",
+    "typescript": "5.5.4"
+  }
+}
