@@ -18,7 +18,7 @@ export function executeActionsFromDelayedBuffer(id: string, callback: (...args: 
         return;
     }
 
-    delayedBuffer[id].forEach(callback);
+    delayedBuffer[id].forEach(item => callback.apply(null, item));
 
     delete delayedBuffer[id];
 }
