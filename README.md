@@ -102,13 +102,14 @@ loadMetrikaScript();
 ```js
 import { setMetrikaUrl, METRIKA_SCRIPT_URL_COM } from 'react-metrika';
 
+// https://mc.yandex.com/metrika/tag.js
 setMetrikaScriptUrl(METRIKA_SCRIPT_URL_COM);
 
 // ...
 ```
 
 ## SPA-приложения и Next.js
-Для отслеживания изменения урла страницы не забудьте включить опцию счётчика `trachHash: true`.
+Для отслеживания изменения урла страницы не забудьте включить опцию счётчика `trackHash: true`.
 ```jsx
 <MetrikaCounter
     id="1234567"
