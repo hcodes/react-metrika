@@ -7,7 +7,8 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "test": "tsc --noEmit",
-    "build": "rollup -c ./rollup.config.mjs"
+    "build": "rollup -c ./rollup.config.mjs",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
