@@ -1,8 +1,7 @@
 import { appendScript } from './appendScript';
-import { MetrikaWindow } from './counter';
 
 export function isMetrikaScriptLoaded() {
-    return Boolean((window as MetrikaWindow).Ya?.Metrika2);
+    return Boolean(window.Ya?.Metrika2);
 }
 
 let loadPromise: Promise<Event> | undefined;

@@ -1,3 +1,4 @@
+import { ym } from '.';
 import { METRIKA_SCRIPT_URL_DEFAULT } from './consts';
 import {
     isMetrikaScriptLoaded,
@@ -15,7 +16,7 @@ export function setMetrikaScriptUrl(url: string) {
     metrikaScriptUrl = url;
 }
 
-export const sendAction = (counterId: string, methodName: string, ...args: any[]) => {
+export function sendAction(counterId: string | number, methodName: string, ...args: any[]) {
     if (typeof window === 'undefined') {
         return;
     }
@@ -39,7 +40,7 @@ export const sendAction = (counterId: string, methodName: string, ...args: any[]
     }
 };
 
-function sendActionWithLoadedMetrika(counterId: string, methodName: string, ...args: any[]) {
+function sendActionWithLoadedMetrika(counterId: string | number, methodName: string, ...args: any[]) {
     const counter = getCounter(counterId);
     if (counter) {
         if (methodName === 'init') {

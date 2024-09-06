@@ -1,35 +1,27 @@
-export type MetrikaWindow = typeof globalThis & Window & Record<`yaCounter${string}`, any> & {
-    Ya: {
-        Metrika2: {
-            new (id: string | Record<string, any>): any;
-        }
-    }
-};
-
-export function hasCounter(id: string) {
-    return Boolean((window as MetrikaWindow)[getCounterName(id)]);
+export function hasCounter(id: string | number) {
+    return Boolean(window[getCounterName(id)]);
 }
 
-export function getCounter(id: string) {
-    return (window as MetrikaWindow)[getCounterName(id)];
+export function getCounter(id: string | number) {
+    return window[getCounterName(id)];
 }
 
-export function getCounterName(id: string): `yaCounter${string}` {
+export function getCounterName(id: string | number): `yaCounter${string}` {
     return `yaCounter${id}`;
 }
 
-export function initCounter(id: string, options?: Record<string, any>) {
+export function initCounter(id: string | number, options?: YaMetrika2Options) {
     let counter = getCounter(id);
     if (counter) {
         return counter;
     }
 
-    counter = new (window as MetrikaWindow).Ya.Metrika2({
+    counter = new window.Ya.Metrika2({
         ...options,
         id,
     });
 
-    (window as MetrikaWindow)[getCounterName(id)] = counter;
+    window[getCounterName(id)] = counter;
 
     return counter;
 }

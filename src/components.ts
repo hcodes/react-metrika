@@ -1,8 +1,8 @@
 import { sendAction } from './sendAction';
 
 export interface MetrikaCounterProps {
-    id: string;
-    options?: Record<string, any>;
+    id: string | number;
+    options?: YaMetrika2Options;
 }
 
 export function MetrikaCounter(props: MetrikaCounterProps): null {
@@ -16,8 +16,8 @@ export function MetrikaCounter(props: MetrikaCounterProps): null {
 }
 
 export interface MetrikaCountersProps {
-    ids: string[];
-    options?: Record<string, any>;
+    ids: (string | number)[];
+    options?: YaMetrika2Options;
 }
 
 export function MetrikaCounters(props: MetrikaCountersProps): null {
