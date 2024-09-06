@@ -128,8 +128,8 @@ setMetrikaScriptUrl(METRIKA_SCRIPT_URL_COM);
 ```
 
 # Ссылки
-- [Справка Метрики: Инициалищия счётчика](https://yandex.ru/support/metrica/code/counter-initialize.html)
+- [Справка Метрики: Инициализация счётчика](https://yandex.ru/support/metrica/code/counter-initialize.html)
 - [Справка Метрики: Справочник методов](https://yandex.ru/support/metrica/objects/method-reference.html)
-- [Справка Метрики: Отладчик работы](https://yandex.ru/support/metrica/general/debugger.html)
+- [Справка Метрики: Отладчик работы счётчика](https://yandex.ru/support/metrica/general/debugger.html)
 
 # [Лицензия](./LICENSE)
