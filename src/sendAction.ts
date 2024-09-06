@@ -2,9 +2,11 @@ import { METRIKA_SCRIPT_URL_DEFAULT } from './consts';
 import {
     getCounter,
     initCounter,
+} from './utils/counter';
+import {
     isMetrikaScriptLoaded,
     loadMetrikaScript,
-} from './utils/counter';
+} from './utils/loadMetrikaScript';
 import {
     addActionToDelayedBuffer,
     executeAllActions,
