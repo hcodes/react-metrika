@@ -54,7 +54,7 @@ function sendActionWithLoadedMetrika(counterId: string | number, methodName: str
         }
     } else {
         if (methodName === 'init') {
-            return initCounter(counterId, args[2]);
+            return initCounter(counterId, args[0]);
         }
     }
 
