@@ -97,6 +97,11 @@ loadMetrikaScript();
 // ...
 ```
 
+Также можно добавить в `<head>` страницы предзагрузку скрипта Метрики:
+```html
+<link rel="preload" href="https://mc.yandex.ru/metrika/tag.js" as="script" />
+```
+
 ## Загрузка скрипта Метрики с международного домена
 
 ```js
