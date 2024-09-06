@@ -1,16 +1,12 @@
 import { METRIKA_SCRIPT_URL_DEFAULT } from './consts';
 import {
-    getCounter,
-    initCounter,
-} from './utils/counter';
-import {
     isMetrikaScriptLoaded,
     loadMetrikaScript,
-} from './utils/loadMetrikaScript';
-import {
+    getCounter,
+    initCounter,
     addActionToDelayedBuffer,
     executeAllActions,
-} from './utils/delayedActionBuffer';
+} from './utils';
 
 let isMetrikaScriptLoading = false;
 let metrikaScriptUrl = METRIKA_SCRIPT_URL_DEFAULT;
@@ -47,17 +43,19 @@ function sendActionWithLoadedMetrika(counterId: string, methodName: string, ...a
     const counter = getCounter(counterId);
     if (counter) {
         if (methodName === 'init') {
-            return;
+            return counter;
         }
 
         try {
-            counter[methodName].apply(counter, args);
+            return counter[methodName].apply(counter, args);
         } catch(e) {
             console.error(e);
         }
     } else {
         if (methodName === 'init') {
-            initCounter(counterId, args[2]);
+            return initCounter(counterId, args[2]);
         }
     }
+
+    return undefined;
 }

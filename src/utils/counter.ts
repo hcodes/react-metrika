@@ -1,5 +1,3 @@
-import { appendScript } from './appendScript';
-
 export type MetrikaWindow = typeof globalThis & Window & Record<`yaCounter${string}`, any> & {
     Ya: {
         Metrika2: {
@@ -21,12 +19,17 @@ export function getCounterName(id: string): `yaCounter${string}` {
 }
 
 export function initCounter(id: string, options?: Record<string, any>) {
-    if (hasCounter(id)) {
-        return;
+    let counter = getCounter(id);
+    if (counter) {
+        return counter;
     }
 
-    (window as MetrikaWindow)[getCounterName(id)] = new (window as MetrikaWindow).Ya.Metrika2({
-        id,
+    counter = new (window as MetrikaWindow).Ya.Metrika2({
         ...options,
+        id,
     });
+
+    (window as MetrikaWindow)[getCounterName(id)] = counter;
+
+    return counter;
 }
