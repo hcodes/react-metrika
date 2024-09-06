@@ -34,9 +34,7 @@ export const MyPage: FC = () => {
       <MetrikaCounter
           id="1234567"
           options={{
-              trackLinks: true,
               trackHash: true,
-              clickmap: true,
               webvisor: true
           }}
       />
@@ -64,9 +62,7 @@ export function MyPage() {
         <MetrikaCounters
             ids={['123', '234']}
             options={{
-                trackLinks: true,
                 trackHash: true,
-                clickmap: true,
                 webvisor: true
             }}
         />
@@ -79,7 +75,7 @@ export function MyPage() {
 import { ym } from 'react-metrika';
 
 // counterId, method, value
-ym('123', 'init', { clickmap: true, trackLinks: true });
+ym('123', 'init', { webvisor: true });
 
 // ...
 
@@ -121,8 +117,6 @@ setMetrikaScriptUrl(METRIKA_SCRIPT_URL_COM);
     id="1234567"
     options={{
         trackHash: true, // !!!
-        trackLinks: true,
-        clickmap: true,
         webvisor: true
     }}
 />
