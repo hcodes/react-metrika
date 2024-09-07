@@ -1,12 +1,12 @@
-import { ym } from '.';
 import { METRIKA_SCRIPT_URL_DEFAULT } from './consts';
 import {
     isMetrikaScriptLoaded,
     loadMetrikaScript,
-    getCounter,
-    initCounter,
+    getMetrikaCounter,
+    initMetrikaCounter,
     addActionToDelayedBuffer,
     executeAllActions,
+    destructMetrikaCounter,
 } from './utils';
 
 let isMetrikaScriptLoading = false;
@@ -41,7 +41,7 @@ export function sendAction(counterId: number, methodName: string, ...args: any[]
 };
 
 function sendActionWithLoadedMetrika(counterId: number, methodName: string, ...args: any[]) {
-    const counter = getCounter(counterId);
+    const counter = getMetrikaCounter(counterId);
     if (counter) {
         if (methodName === 'init') {
             return counter;
@@ -52,9 +52,13 @@ function sendActionWithLoadedMetrika(counterId: number, methodName: string, ...a
         } catch(e) {
             console.error(e);
         }
+
+        if (methodName === 'destruct') {
+            destructMetrikaCounter(counterId);
+        }        
     } else {
         if (methodName === 'init') {
-            return initCounter(counterId, args[0]);
+            return initMetrikaCounter(counterId, args[0]);
         }
     }
 

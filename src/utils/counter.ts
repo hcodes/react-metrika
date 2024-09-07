@@ -1,17 +1,28 @@
-export function hasCounter(id: number) {
-    return Boolean(window[getCounterName(id)]);
+const metrikaCounterIds: Record<number, boolean | undefined> = {};
+
+export function getMetrikaCounterIds(): number[] {
+    return Object.keys(metrikaCounterIds).map(id => Number(id));
 }
 
-export function getCounter(id: number) {
-    return window[getCounterName(id)];
+export function hasMetrikaCounter(id: number): boolean {
+    return Boolean(window[getMetrikaCounterName(id)]);
 }
 
-export function getCounterName(id: number): `yaCounter${string}` {
+export function getMetrikaCounter(id: number): YaMetrika2 | undefined {
+    return window[getMetrikaCounterName(id)];
+}
+
+export function getMetrikaCounterName(id: number): `yaCounter${string}` {
     return `yaCounter${id}`;
 }
 
-export function initCounter(id: number, options?: YaMetrika2Options) {
-    let counter = getCounter(id);
+export function destructMetrikaCounter(id: number) {
+    delete metrikaCounterIds[id];
+    delete window[getMetrikaCounterName(id)];
+}
+
+export function initMetrikaCounter(id: number, options?: YaMetrika2Options): YaMetrika2 {
+    let counter = getMetrikaCounter(id);
     if (counter) {
         return counter;
     }
@@ -21,7 +32,9 @@ export function initCounter(id: number, options?: YaMetrika2Options) {
         id,
     });
 
-    window[getCounterName(id)] = counter;
+    metrikaCounterIds[id] = true;
+
+    window[getMetrikaCounterName(id)] = counter;
 
     return counter;
 }
