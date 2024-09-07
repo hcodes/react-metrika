@@ -32,7 +32,7 @@ export const MyPage: FC = () => {
       <Content>Some text...</Content>
       <Footer />
       <MetrikaCounter
-          id="1234567"
+          id={1234567}
           options={{
               trackHash: true,
               webvisor: true
@@ -49,7 +49,7 @@ import { MetrikaCounters } from 'react-metrika';
 
 export function MyPage() {
     const handleClick = () => {
-        ym('123', 'params', { myParams: { a: 1, b: 2, c: 3 } });
+        ym(123, 'params', { myParams: { a: 1, b: 2, c: 3 } });
     };
 
     return (
@@ -60,7 +60,7 @@ export function MyPage() {
         </Content>
         <Footer />
         <MetrikaCounters
-            ids={['123', '234']}
+            ids={[123, 234]}
             options={{
                 trackHash: true,
                 webvisor: true
@@ -75,11 +75,11 @@ export function MyPage() {
 import { ym } from 'react-metrika';
 
 // counterId, method, value
-ym('123', 'init', { webvisor: true });
+ym(123, 'init', { webvisor: true });
 
 // ...
 
-ym('123', 'reachGoal', 'goalName', { params: { a: 1, b: 2, c: 3 }});
+ym(123, 'reachGoal', 'goalName', { params: { a: 1, b: 2, c: 3 }});
 
 ```
 
@@ -114,7 +114,7 @@ setMetrikaScriptUrl(METRIKA_SCRIPT_URL_COM);
 Для отслеживания изменения урла страницы не забудьте включить опцию счётчика `trackHash: true`.
 ```jsx
 <MetrikaCounter
-    id="1234567"
+    id={1234567}
     options={{
         trackHash: true, // !!!
         webvisor: true
