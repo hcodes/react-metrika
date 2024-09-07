@@ -120,39 +120,41 @@ declare global {
     interface Window {
         [key: `yaCounter${string}`]: YaMetrika2;
 
+        // https://yandex.ru/support/metrica/objects/method-reference.html
+
         // ym(XXXXXX, 'init', { clickmap: false });
-        ym(id: string | number, methodName: 'init', options?: YaMetrika2Options): void;
+        ym(id: number, methodName: 'init', options?: YaMetrika2Options): void;
 
         // ym(XXXXXX, 'addFileExtension' 'lzh');
-        ym(id: string | number, methodName: 'addFileExtension', extension: string | string[]): void;
+        ym(id: number, methodName: 'addFileExtension', extension: string | string[]): void;
 
         // ym(XXXXXX, 'extLink', 'https://yandex.com');
-        ym(id: string | number, methodName: 'extLink', url: string, options?: YaMetrika2ExtLinkOptions): void;
+        ym(id: number, methodName: 'extLink', url: string, options?: YaMetrika2ExtLinkOptions): void;
 
         // ym(XXXXXX, 'file', url[, options]);
-        ym(id: string | number, methodName: 'file', url: string,  options?: YaMetrika2FileOptions): void;
+        ym(id: number, methodName: 'file', url: string,  options?: YaMetrika2FileOptions): void;
 
         // ym(XXXXXX, 'firstPartyParams', parameters);
-        ym(id: string | number, methodName: 'firstPartyParams', params: YaMetrika2FirstPartyParamsParams): void;
+        ym(id: number, methodName: 'firstPartyParams', params: YaMetrika2FirstPartyParamsParams): void;
 
         // ym(XXXXXX, 'notBounce', [options]);
-        ym(id: string | number, methodName: 'notBounce', options?: YaMetrika2NotBounceOptions): void;
+        ym(id: number, methodName: 'notBounce', options?: YaMetrika2NotBounceOptions): void;
 
         // ym(XXXXXX, 'getClientID', function(clientID) { }); 
-        ym(id: string | number, methodName: 'getClientID', callback: (clientID: string) => void): void;
+        ym(id: number, methodName: 'getClientID', callback: (clientID: string) => void): void;
 
         // ym(XXXXXX, 'setUserID', "12345");
-        ym(id: string | number, methodName: 'setUserID', userId: string): void;
+        ym(id: number, methodName: 'setUserID', userId: string): void;
 
         // ym(XXXXXX, 'hit', [url[, options]])
-        ym(id: string | number, methodName: 'hit', url?: string, options?: YaMetrika2HitOptions): void;
+        ym(id: number, methodName: 'hit', url?: string, options?: YaMetrika2HitOptions): void;
 
         // ym(XXXXXX, 'params', parameters);
-        ym(id: string | number, methodName: 'params', params: any): void;
+        ym(id: number, methodName: 'params', params: YaMetrika2Params): void;
 
         // ym(XXXXXX, 'reachGoal', target[, params[, callback[, ctx]]]);
         ym(
-            id: string | number,
+            id: number,
             methodName: 'reachGoal',
             target: string,
             params?: any,
@@ -161,13 +163,13 @@ declare global {
         ): void;
 
         // ym(XXXXXX, 'userParams', parameters);
-        ym(id: string | number, methodName: 'userParams', params: any): void;
+        ym(id: number, methodName: 'userParams', params: any): void;
 
         Ya: {
             Metrika2: {
-                new (id: string | number | YaMetrika2Options & { id: string | number }): YaMetrika2;
+                new (id: string | number | YaMetrika2Options & { id: number }): YaMetrika2;
                 counters(): Array<{ id: number; type: number; clickmap: boolean; webvisor: boolean; trackHash: boolean; }>;
-                informer(id: string | number): void;
+                informer(id: number): void;
             }
         }
     }
