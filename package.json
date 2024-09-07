@@ -7,7 +7,8 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "test": "tsc --noEmit",
-    "build": "rollup -c ./rollup.config.mjs",
+    "clean": "del ./dist",
+    "build": "npm run clean; rollup -c ./rollup.config.mjs",
     "prepare": "npm run build"
   },
   "repository": {
@@ -35,6 +36,7 @@
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
+    "del-cli": "^5.1.0",
     "rollup": "^4.21.2",
     "tslib": "^2.7.0",
     "typescript": "^5.5.4"
