@@ -150,7 +150,7 @@ declare global {
         ym(id: number, methodName: 'hit', url?: string, options?: YaMetrika2HitOptions): void;
 
         // ym(XXXXXX, 'params', parameters);
-        ym(id: number, methodName: 'params', params: YaMetrika2Params): void;
+        ym(id: number, methodName: 'params', params: any): void;
 
         // ym(XXXXXX, 'reachGoal', target[, params[, callback[, ctx]]]);
         ym(
