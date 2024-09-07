@@ -1,6 +1,6 @@
 {
   "name": "react-metrika",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Excellent React/Preact component for Yandex Metrika",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
