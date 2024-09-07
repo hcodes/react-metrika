@@ -8,4 +8,6 @@ export { clearDelayedBuffer } from './utils/delayedActionBuffer';
 
 import { sendAction } from './sendAction';
 
+export * from './types';
+
 export const ym = sendAction as Window['ym'];
