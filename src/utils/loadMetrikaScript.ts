@@ -4,14 +4,18 @@ export function isMetrikaScriptLoaded() {
     return Boolean(window.Ya?.Metrika2);
 }
 
-let loadPromise: Promise<Event> | undefined;
+let loadPromise: Promise<void> | undefined;
 
-export function loadMetrikaScript(url: string, retriesCount = 3) {
+export function loadMetrikaScript(url: string, retriesCount = 3): Promise<void> {
+    if (isMetrikaScriptLoaded()) {
+        return Promise.resolve();
+    }
+
     if (loadPromise) {
         return loadPromise;
     }
 
-    loadPromise = new Promise<Event>((resolve, reject) => {
+    loadPromise = new Promise<void>((resolve, reject) => {
         function load(retriesLeft: number) {
             appendScript(url)
                 .then((value) => {
