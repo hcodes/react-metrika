@@ -90,7 +90,7 @@ ym(123, 'reachGoal', 'goalName', { params: { a: 1, b: 2, c: 3 }});
 import { loadMetrikaScript } from 'react-metrika';
 
 loadMetrikaScript().then(() => {
-    console.log('Metrika script loaded.');
+    console.log('Metrika script is loaded.');
 });
 
 // ...
