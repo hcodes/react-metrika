@@ -1,6 +1,6 @@
 {
   "name": "react-metrika",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Excellent React/Preact component for Yandex Metrika",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -36,9 +36,9 @@
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
-    "del-cli": "^5.1.0",
-    "rollup": "^4.21.2",
-    "tslib": "^2.7.0",
-    "typescript": "^5.5.4"
+    "del-cli": "^6.0.0",
+    "rollup": "^4.28.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2"
   }
 }
