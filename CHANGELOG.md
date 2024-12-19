@@ -1,3 +1,6 @@
+# 0.3.2
+Fixes for TS typings.
+
 # 0.3.1
 Fixes for TS typings.
 
