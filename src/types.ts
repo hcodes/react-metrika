@@ -19,7 +19,7 @@ declare global {
         trackHash?: boolean;
         // Признак отслеживания переходов по внешним ссылкам
         trackLinks?: boolean;
-        // Признак доверенного домена для записи содержимого дочернего окна iframe. 
+        // Признак доверенного домена для записи содержимого дочернего окна iframe.
         trustedDomains?: string[];
         // Тип счетчика. Для РСЯ равен 1. Значение по умолчанию - 0
         type?: 0 | 1;
@@ -114,57 +114,11 @@ declare global {
         // URL с которого посетитель загрузил файл
         referer?: string;
         // Заголовок текущей страницы
-        title?: string;   
+        title?: string;
     }
 
     interface Window {
         [key: `yaCounter${string}`]: YaMetrika2;
-
-        // https://yandex.ru/support/metrica/objects/method-reference.html
-
-        // ym(XXXXXX, 'init', { clickmap: false });
-        ym(id: number, methodName: 'init', options?: YaMetrika2Options): void;
-
-        // ym(XXXXXX, 'addFileExtension' 'lzh');
-        ym(id: number, methodName: 'addFileExtension', extension: string | string[]): void;
-
-        // ym(XXXXXX, 'extLink', 'https://yandex.com');
-        ym(id: number, methodName: 'extLink', url: string, options?: YaMetrika2ExtLinkOptions): void;
-
-        // ym(XXXXXX, 'file', url[, options]);
-        ym(id: number, methodName: 'file', url: string,  options?: YaMetrika2FileOptions): void;
-
-        // ym(XXXXXX, 'firstPartyParams', parameters);
-        ym(id: number, methodName: 'firstPartyParams', params: YaMetrika2FirstPartyParamsParams): void;
-
-        // ym(XXXXXX, 'notBounce', [options]);
-        ym(id: number, methodName: 'notBounce', options?: YaMetrika2NotBounceOptions): void;
-
-        // ym(XXXXXX, 'getClientID', function(clientID) { }); 
-        ym(id: number, methodName: 'getClientID', callback: (clientID: string) => void): void;
-
-        // ym(XXXXXX, 'setUserID', "12345");
-        ym(id: number, methodName: 'setUserID', userId: string): void;
-
-        // ym(XXXXXX, 'hit', [url[, options]])
-        ym(id: number, methodName: 'hit', url?: string, options?: YaMetrika2HitOptions): void;
-
-        // ym(XXXXXX, 'params', parameters);
-        ym(id: number, methodName: 'params', params: any): void;
-
-        // ym(XXXXXX, 'reachGoal', target[, params[, callback[, ctx]]]);
-        ym(
-            id: number,
-            methodName: 'reachGoal',
-            target: string,
-            params?: any,
-            callback?: () => void,
-            ctx?: any
-        ): void;
-
-        // ym(XXXXXX, 'userParams', parameters);
-        ym(id: number, methodName: 'userParams', params: any): void;
-
         Ya: {
             Metrika2: {
                 new (id: string | number | YaMetrika2Options & { id: number }): YaMetrika2;

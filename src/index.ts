@@ -10,4 +10,4 @@ import { sendAction } from './sendAction';
 
 export * from './types';
 
-export const ym = sendAction as Window['ym'];
+export const ym = sendAction;
