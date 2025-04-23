@@ -49,7 +49,7 @@ export const MyPage: FC = () => {
 import { FC } from 'react';
 import { MetrikaCounters } from 'react-metrika';
 
-export function MyPage() {
+export const MyPage: FC = () => {
     const handleClick = () => {
         ym(123, 'params', { myParams: { a: 1, b: 2, c: 3 } });
     };
