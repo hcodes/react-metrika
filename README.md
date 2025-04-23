@@ -4,6 +4,8 @@ react-metrika
 [![NPM Downloads](https://img.shields.io/npm/dm/react-metrika.svg?style=flat)](https://www.npmjs.org/package/react-metrika)
 [![install size](https://packagephobia.com/badge?p=react-metrika)](https://packagephobia.com/result?p=react-metrika)
 
+<img align="right" width="400" src="./images/react-metrika.png" />
+
 Превосходный React/Preact-компонент для работы с Яндекс Метрикой и не только.
 
 # Преимущества
