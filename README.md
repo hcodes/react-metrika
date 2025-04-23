@@ -4,11 +4,10 @@ react-metrika
 [![NPM Downloads](https://img.shields.io/npm/dm/react-metrika.svg?style=flat)](https://www.npmjs.org/package/react-metrika)
 [![install size](https://packagephobia.com/badge?p=react-metrika)](https://packagephobia.com/result?p=react-metrika)
 
-<img align="right" width="400" src="./images/react-metrika.png" />
-
 Превосходный React/Preact-компонент для работы с Яндекс Метрикой и не только.
 
 # Преимущества
+<img align="right" width="200" src="./images/react-metrika.png" />
 - скрипт Яндекс Метрики загружается один раз на странице для нескольких счётчиков, это позволяет избавится от лишних сетевых запросов, сэкономить трафик и избежать лишнего парсинга и выполнения JS-кода скрипта Метрики (73 КБ GZIP);
 - компонент `<MetrikaCounter />` можно размещать в любом месте на странице, гарантируется что счётчик не будет несколько раз инициализироваться;
 - если возникают ошибки загрузки скрипта Метрики, он пытается заново загрузиться;
