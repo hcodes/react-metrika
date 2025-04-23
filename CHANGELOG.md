@@ -1,3 +1,7 @@
+# 0.3.3
+- Fixed commonjs build.
+- Update dev deps in package.json.
+
 # 0.3.2
 Fixes for TS typings.
 
