@@ -6,7 +6,7 @@ react-metrika
 
 Превосходный React/Preact-компонент для работы с Яндекс Метрикой и не только.
 
-<img width="250" src="./images/react-metrika.png" />
+<img width="350" src="https://raw.githubusercontent.com/hcodes/react-metrika/refs/heads/main/images/react-metrika.png" />
 
 # Преимущества
 
