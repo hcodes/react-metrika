@@ -1,3 +1,6 @@
+# 1.0.0
+Updated dev deps in package.json.
+
 # 0.3.3
 - Fixed commonjs build.
 - Update dev deps in package.json.
