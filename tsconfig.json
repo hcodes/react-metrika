@@ -1,11 +1,12 @@
 {
-    "exclude": ["dist"],
+    "exclude": ["dist", "rollup.config.mjs"],
     "compilerOptions": {
+        "rootDir": "src",
         "outDir": "./dist/",
         "module": "es6",
         "target": "ES5",
         "declaration": true,
-        "declarationDir": ".",
+        "declarationDir": "./dist",
         "allowJs": true,
         "esModuleInterop": true,
         "lib": [
