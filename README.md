@@ -26,10 +26,9 @@ npm install --save-dev react-metrika
 # Использование
 Установка одного счётчика:
 ```jsx
-import { FC } from 'react';
 import { MetrikaCounter } from 'react-metrika';
 
-export const MyPage: FC = () => {
+export const MyPage = () => {
     return (
       <Header />
       <Content>Some text...</Content>
@@ -47,10 +46,9 @@ export const MyPage: FC = () => {
 
 Установка нескольких счётчиков с одинаковыми настройками:
 ```jsx
-import { FC } from 'react';
 import { MetrikaCounters } from 'react-metrika';
 
-export const MyPage: FC = () => {
+export const MyPage = () => {
     const handleClick = () => {
         ym(123, 'params', { myParams: { a: 1, b: 2, c: 3 } });
     };
