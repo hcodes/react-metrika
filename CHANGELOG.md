@@ -1,3 +1,7 @@
+# 1.1.0
+- Added the `scriptUrl` prop to the `MetrikaCounter` and `MetrikaCounters` components.
+- Updated dev dependencies.
+
 # 1.0.0
 Updated dev deps in package.json.
 
