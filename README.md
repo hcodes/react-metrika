@@ -113,6 +113,23 @@ setMetrikaScriptUrl(METRIKA_SCRIPT_URL_COM);
 // ...
 ```
 
+```js
+import { MetrikaCounters, METRIKA_SCRIPT_URL_COM } from 'react-metrika';
+
+export const MyPage = () => {
+    return (
+        <Header />
+        <Content>
+        </Content>
+        <Footer />
+        <MetrikaCounters
+            ids={[123, 234]}
+            scriptUrl={METRIKA_SCRIPT_URL_COM}
+        />
+  );
+}
+```
+
 ## SPA-приложения и Next.js
 Для отслеживания изменения урла страницы не забудьте включить опцию счётчика `trackHash: true`.
 ```jsx
