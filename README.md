@@ -144,8 +144,7 @@ export const MyPage = () => {
 <MetrikaCounter
     id={1234567}
     options={{
-        trackHash: true,
-        webvisor: true
+        trackHash: true
     }}
 />
 ```
@@ -156,8 +155,7 @@ export const MyPage = () => {
 <MetrikaCounter
     id={1234567}
     options={{
-        defer: true,
-        webvisor: true
+        defer: true
     }}
 />
 ```
