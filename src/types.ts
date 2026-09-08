@@ -1,40 +1,47 @@
 declare global {
-    // https://yandex.ru/support/metrica/code/counter-initialize.html
+    type YaMetrika2Params = Record<string, unknown> | Array<Record<string, unknown>>;
+    type YaMetrika2UserParams = Record<string, unknown>;
+
+    // https://yandex.ru/support/metrica/ru/code/counter-initialize
     interface YaMetrika2Options {
         // Точный показатель отказов, значение по умолчанию - true
         accurateTrackBounce?: boolean | number;
         // Признак записи содержимого iframe без счетчика в дочернем окне. Значение по умолчанию - false
         childIframe?: boolean;
-        // Признак сбора данных для карты кликов. Значение по умолчанию - false
+        // Признак сбора данных для карты кликов. Значение по умолчанию - true
         clickmap?: boolean;
         // Признак отключения автоматической отправки данных при инициализации счетчика. Значение по умолчанию - false
         defer?: boolean;
+        // Признак работы Яндекс Тег Менеджера. Значение по умолчанию - false
+        disableYtm?: boolean;
         // Сбор данных электронной коммерции. Значение по умолчанию - false
-        ecommerce?: string | boolean | string[];
+        ecommerce?: string | boolean | unknown[];
         // Параметры визита, передаваемые во время инициализации счетчика.
-        params?: any;
+        params?: YaMetrika2Params;
         // Параметры посетителей сайта, передаваемые во время инициализации счетчика.
-        userParams?: any;
+        userParams?: YaMetrika2UserParams;
         // Признак отслеживания изменений хеша в адресной строке браузера. Значение по умолчанию - false
         trackHash?: boolean;
-        // Признак отслеживания переходов по внешним ссылкам
+        // Признак отслеживания переходов по внешним ссылкам. Значение по умолчанию - true
         trackLinks?: boolean;
         // Признак доверенного домена для записи содержимого дочернего окна iframe.
         trustedDomains?: string[];
         // Тип счетчика. Для РСЯ равен 1. Значение по умолчанию - 0
-        type?: 0 | 1;
+        type?: number;
         // Признак использования Вебвизора. Значение по умолчанию - false
         webvisor?: boolean;
         // Признак проверки готовности счетчика. Значение по умолчанию - false
         triggerEvent?: boolean;
         // Запись заголовка страницы. Значение по умолчанию - true
         sendTitle?: boolean;
+        // Технический параметр для работы кода вставки. Значение по умолчанию - true
+        ssr?: boolean;
     }
 
     interface YaMetrika2 extends Record<string, (...args: any) => void> {
         hit(url?: string, options?: YaMetrika2HitOptions): void;
-        params(params: any): void;
-        reachGoal(target: string, params?: any, callback?: () => void, ctx?: any): void;
+        params(params: YaMetrika2Params): void;
+        reachGoal(target: string, params?: Record<string, unknown>, callback?: () => void, ctx?: unknown): void;
         addFileExtension(extension: string | string[]): void;
         extLink(url: string, options?: YaMetrika2ExtLinkOptions): void;
         file(url: string, options?: YaMetrika2FileOptions): void;
@@ -43,7 +50,7 @@ declare global {
         getClientID(): string;
         setUserID(userId: string): void;
         notBounce(options?: YaMetrika2NotBounceOptions): void;
-        userParams(params: any): void;
+        userParams(params: YaMetrika2UserParams): void;
         destruct(): void;
     }
 
@@ -51,9 +58,9 @@ declare global {
         // Callback-функция, вызываемая после отправки данных о загрузке файла
         callback?: () => void;
         // Контекст, доступный в callback-функции по ключевому слову this
-        ctx?: any;
+        ctx?: unknown;
         // Параметры визита
-        params?: any;
+        params?: Record<string, unknown>;
         // Заголовок текущей страницы
         title?: string;
     }
@@ -62,9 +69,9 @@ declare global {
         // Callback-функция, вызываемая после отправки данных о загрузке файла
         callback?: () => void;
         // Контекст, доступный в callback-функции по ключевому слову this
-        ctx?: any;
+        ctx?: unknown;
         // Параметры визита
-        params?: any;
+        params?: Record<string, unknown>;
         // URL с которого посетитель загрузил файл
         referer?: string;
         // Заголовок текущей страницы
@@ -101,16 +108,16 @@ declare global {
         // Callback-функция, вызываемая после отправки данных о просмотре
         callback?: () => void;
         // Контекст, доступный в callback-функции по ключевому слову this
-        ctx?: any;
+        ctx?: unknown;
     }
 
     interface YaMetrika2HitOptions {
         // Callback-функция, вызываемая после отправки данных о загрузке файла
         callback?: () => void;
         // Контекст, доступный в callback-функции по ключевому слову this
-        ctx?: any;
+        ctx?: unknown;
         // Параметры визита
-        params?: any;
+        params?: Record<string, unknown>;
         // URL с которого посетитель загрузил файл
         referer?: string;
         // Заголовок текущей страницы
@@ -118,10 +125,11 @@ declare global {
     }
 
     interface Window {
-        [key: `yaCounter${string}`]: YaMetrika2;
-        Ya: {
+        [key: `yaCounter${string}`]: YaMetrika2 | undefined;
+        Ya?: {
             Metrika2: {
-                new (id: string | number | YaMetrika2Options & { id: number }): YaMetrika2;
+                new (id: string | number): YaMetrika2;
+                new (options: YaMetrika2Options & { id: number }): YaMetrika2;
                 counters(): Array<{ id: number; type: number; clickmap: boolean; webvisor: boolean; trackHash: boolean; }>;
                 informer(id: number): void;
             }

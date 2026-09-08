@@ -16,12 +16,12 @@ export function setMetrikaScriptUrl(url: string) {
     metrikaScriptUrl = url;
 }
 
-// https://yandex.ru/support/metrica/objects/method-reference.html
+// https://yandex.ru/support/metrica/ru/objects/method-reference
 
 // ym(XXXXXX, 'init', { clickmap: false });
 export function sendAction(id: number, methodName: 'init', options?: YaMetrika2Options): void;
 
-// ym(XXXXXX, 'addFileExtension' 'lzh');
+// ym(XXXXXX, 'addFileExtension', 'lzh');
 export function sendAction(id: number, methodName: 'addFileExtension', extension: string | string[]): void;
 
 // ym(XXXXXX, 'extLink', 'https://yandex.com');
@@ -32,6 +32,9 @@ export function sendAction(id: number, methodName: 'file', url: string,  options
 
 // ym(XXXXXX, 'firstPartyParams', parameters);
 export function sendAction(id: number, methodName: 'firstPartyParams', params: YaMetrika2FirstPartyParamsParams): void;
+
+// ym(XXXXXX, 'firstPartyParamsHashed', parameters);
+export function sendAction(id: number, methodName: 'firstPartyParamsHashed', params: YaMetrika2FirstPartyParamsHashedParams): void;
 
 // ym(XXXXXX, 'notBounce', [options]);
 export function sendAction(id: number, methodName: 'notBounce', options?: YaMetrika2NotBounceOptions): void;
@@ -46,20 +49,22 @@ export function sendAction(id: number, methodName: 'setUserID', userId: string):
 export function sendAction(id: number, methodName: 'hit', url?: string, options?: YaMetrika2HitOptions): void;
 
 // ym(XXXXXX, 'params', parameters);
-export function sendAction(id: number, methodName: 'params', params: any): void;
+export function sendAction(id: number, methodName: 'params', params: YaMetrika2Params): void;
 
 // ym(XXXXXX, 'reachGoal', target[, params[, callback[, ctx]]]);
 export function sendAction(
     id: number,
     methodName: 'reachGoal',
     target: string,
-    params?: any,
+    params?: Record<string, unknown>,
     callback?: () => void,
-    ctx?: any
+    ctx?: unknown
 ): void;
 
 // ym(XXXXXX, 'userParams', parameters);
-export function sendAction(id: number, methodName: 'userParams', params: any): void;
+export function sendAction(id: number, methodName: 'userParams', params: YaMetrika2UserParams): void;
+
+export function sendAction(id: number, methodName: 'destruct'): void;
 
 export function sendAction(counterId: number, methodName: string, ...args: any[]) {
     if (typeof window === 'undefined') {
@@ -75,7 +80,10 @@ export function sendAction(counterId: number, methodName: string, ...args: any[]
 
     if (!isMetrikaScriptLoading) {
         loadMetrikaScript(metrikaScriptUrl)
-            .then(() => executeAllActions(sendActionWithLoadedMetrika))
+            .then(() => {
+                isMetrikaScriptLoading = false;
+                executeAllActions(sendActionWithLoadedMetrika);
+            })
             .catch(error => {
                 isMetrikaScriptLoading = false;
                 console.error(error);
@@ -93,13 +101,15 @@ function sendActionWithLoadedMetrika(counterId: number, methodName: string, ...a
         }
 
         try {
-            return counter[methodName].apply(counter, args);
+            const result = counter[methodName].apply(counter, args);
+
+            if (methodName === 'destruct') {
+                destructMetrikaCounter(counterId);
+            }
+
+            return result;
         } catch(e) {
             console.error(e);
-        }
-
-        if (methodName === 'destruct') {
-            destructMetrikaCounter(counterId);
         }
     } else {
         if (methodName === 'init') {

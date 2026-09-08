@@ -1,4 +1,5 @@
 import { appendScript } from './appendScript';
+import { METRIKA_SCRIPT_URL_DEFAULT } from '../consts';
 
 export function isMetrikaScriptLoaded() {
     return Boolean(window.Ya?.Metrika2);
@@ -6,7 +7,7 @@ export function isMetrikaScriptLoaded() {
 
 let loadPromise: Promise<void> | undefined;
 
-export function loadMetrikaScript(url: string, retriesCount = 3): Promise<void> {
+export function loadMetrikaScript(url = METRIKA_SCRIPT_URL_DEFAULT, retriesCount = 3): Promise<void> {
     if (isMetrikaScriptLoaded()) {
         return Promise.resolve();
     }
