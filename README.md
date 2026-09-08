@@ -66,8 +66,7 @@ export const MyPage = () => {
             <MetrikaCounters
                 ids={[123, 234]}
                 options={{
-                    trackHash: true,
-                    webvisor: true
+                    trackHash: true
                 }}
             />
         </>
