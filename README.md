@@ -185,6 +185,7 @@ export const MetrikaHit = ({ url }) => {
 ```
 
 # Ссылки
+- [Лёгкая Я.Метрика](https://github.com/hcodes/lyam)
 - [Справка Метрики: Инициализация счётчика](https://yandex.ru/support/metrica/ru/code/counter-initialize)
 - [Справка Метрики: Справочник методов](https://yandex.ru/support/metrica/ru/objects/method-reference)
 - [Справка Метрики: Отладчик работы счётчика](https://yandex.ru/support/metrica/ru/general/debugger)
