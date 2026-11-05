@@ -30,8 +30,7 @@ jobs:
       - name: Test
         run: npm test
 
-      - name: Build
-        run: npm run build
+      # build happens via `prepare` lifecycle (npm ci and npm publish both run it)
 
       - name: Publish
         run: npm publish

@@ -8,7 +8,7 @@
   "scripts": {
     "test": "tsc --noEmit",
     "clean": "del ./dist",
-    "build": "npm run clean; rollup -c ./rollup.config.mjs",
+    "build": "npm run clean && rollup -c ./rollup.config.mjs",
     "prepare": "npm run build"
   },
   "repository": {
