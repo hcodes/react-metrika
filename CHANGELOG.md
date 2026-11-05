@@ -1,3 +1,9 @@
+# Unreleased
+- **Breaking (typings):** `YaMetrika2.getClientID` is now typed as `getClientID(callback: (clientID: string) => void): void` according to the Yandex Metrika documentation; the previous `(): string` signature never returned a value at runtime.
+- **Breaking:** the package no longer exports the internal counter helpers `initMetrikaCounter`, `destructMetrikaCounter`, `getMetrikaCounter` and `getMetrikaCounterName`, which were accidentally exposed through the public entry point.
+- Enabled `strictNullChecks` in the TypeScript build.
+- Fixed typos in the documentation and typings comments; added the React ≥ 16 / Preact ≥ 8 compatibility note to the README.
+
 # 1.2.0
 - Updated counter initialization options and method typings according to the current Yandex Metrika documentation while preserving existing initialization forms.
 - Added the `firstPartyParamsHashed` and `destruct` overloads.

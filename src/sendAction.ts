@@ -64,6 +64,9 @@ export function sendAction(
 // ym(XXXXXX, 'userParams', parameters);
 export function sendAction(id: number, methodName: 'userParams', params: YaMetrika2UserParams): void;
 
+// ym(XXXXXX, 'destruct');
+// Note: `destruct` is absent from the official Metrika method reference
+// (undocumented counter-object API); see the note in README.
 export function sendAction(id: number, methodName: 'destruct'): void;
 
 export function sendAction(counterId: number, methodName: string, ...args: any[]) {
