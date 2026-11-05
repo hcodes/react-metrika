@@ -28,7 +28,7 @@ export function sendAction(id: number, methodName: 'addFileExtension', extension
 export function sendAction(id: number, methodName: 'extLink', url: string, options?: YaMetrika2ExtLinkOptions): void;
 
 // ym(XXXXXX, 'file', url[, options]);
-export function sendAction(id: number, methodName: 'file', url: string,  options?: YaMetrika2FileOptions): void;
+export function sendAction(id: number, methodName: 'file', url: string, options?: YaMetrika2FileOptions): void;
 
 // ym(XXXXXX, 'firstPartyParams', parameters);
 export function sendAction(id: number, methodName: 'firstPartyParams', params: YaMetrika2FirstPartyParamsParams): void;
@@ -91,7 +91,7 @@ export function sendAction(counterId: number, methodName: string, ...args: any[]
 
         isMetrikaScriptLoading = true;
     }
-};
+}
 
 function sendActionWithLoadedMetrika(counterId: number, methodName: string, ...args: any[]) {
     const counter = getMetrikaCounter(counterId);

@@ -55,7 +55,7 @@ declare global {
     }
 
     interface YaMetrika2ExtLinkOptions {
-        // Callback-функция, вызываемая после отправки данных о загрузке файла
+        // Callback-функция, вызываемая после отправки данных о переходе по внешней ссылке
         callback?: () => void;
         // Контекст, доступный в callback-функции по ключевому слову this
         ctx?: unknown;
@@ -72,7 +72,7 @@ declare global {
         ctx?: unknown;
         // Параметры визита
         params?: Record<string, unknown>;
-        // URL с которого посетитель загрузил файл
+        // URL, с которого посетитель загрузил файл
         referer?: string;
         // Заголовок текущей страницы
         title?: string;
@@ -112,13 +112,13 @@ declare global {
     }
 
     interface YaMetrika2HitOptions {
-        // Callback-функция, вызываемая после отправки данных о загрузке файла
+        // Callback-функция, вызываемая после отправки данных о просмотре страницы
         callback?: () => void;
         // Контекст, доступный в callback-функции по ключевому слову this
         ctx?: unknown;
         // Параметры визита
         params?: Record<string, unknown>;
-        // URL с которого посетитель загрузил файл
+        // URL, с которого посетитель перешёл на страницу
         referer?: string;
         // Заголовок текущей страницы
         title?: string;
