@@ -2,7 +2,7 @@ export * from './components';
 export * from './consts';
 
 export { loadMetrikaScript, isMetrikaScriptLoaded } from './utils/loadMetrikaScript';
-export * from './utils/counter';
+export { getMetrikaCounterIds, hasMetrikaCounter } from './utils/counter';
 export { setMetrikaScriptUrl } from './sendAction';
 export { clearDelayedBuffer } from './utils/delayedActionBuffer';
 

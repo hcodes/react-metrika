@@ -47,7 +47,7 @@ declare global {
         file(url: string, options?: YaMetrika2FileOptions): void;
         firstPartyParams(params: YaMetrika2FirstPartyParamsParams): void;
         firstPartyParamsHashed(params: YaMetrika2FirstPartyParamsHashedParams): void;
-        getClientID(): string;
+        getClientID(callback: (clientID: string) => void): void;
         setUserID(userId: string): void;
         notBounce(options?: YaMetrika2NotBounceOptions): void;
         userParams(params: YaMetrika2UserParams): void;
