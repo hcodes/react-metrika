@@ -27,7 +27,9 @@ export function initMetrikaCounter(id: number, options?: YaMetrika2Options): YaM
         return counter;
     }
 
-    counter = new window.Ya.Metrika2({
+    // `window.Ya` is guaranteed here: init is only reached after `isMetrikaScriptLoaded()`
+    // checks (see sendAction.ts:74 and loadMetrikaScript.ts:23-28 resolve-time validation).
+    counter = new window.Ya!.Metrika2({
         ...options,
         id,
     });
